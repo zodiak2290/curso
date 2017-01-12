@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = todoList
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,5 +31,10 @@ class ViewController: UIViewController {
         print("hi")
         todoList.addItem(item: itemTextField.text!)
         tableView.reloadData()
+    }
+    
+    //MARK: Metodos del table view delegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.itemTextField?.resignFirstResponder()
     }
 }
