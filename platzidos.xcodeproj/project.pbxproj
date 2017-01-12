@@ -12,6 +12,7 @@
 		D62A73AA1E15ACD800FA9793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A73A81E15ACD800FA9793 /* Main.storyboard */; };
 		D62A73AC1E15ACD800FA9793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A73AB1E15ACD800FA9793 /* Assets.xcassets */; };
 		D62A73AF1E15ACD800FA9793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A73AD1E15ACD800FA9793 /* LaunchScreen.storyboard */; };
+		D6CC177B1E2707860006A6A5 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC177A1E2707860006A6A5 /* TodoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D62A73AB1E15ACD800FA9793 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D62A73AE1E15ACD800FA9793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D62A73B01E15ACD800FA9793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6CC177A1E2707860006A6A5 /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				D62A73AB1E15ACD800FA9793 /* Assets.xcassets */,
 				D62A73AD1E15ACD800FA9793 /* LaunchScreen.storyboard */,
 				D62A73B01E15ACD800FA9793 /* Info.plist */,
+				D6CC177A1E2707860006A6A5 /* TodoList.swift */,
 			);
 			path = platzidos;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CC177B1E2707860006A6A5 /* TodoList.swift in Sources */,
 				D62A73A71E15ACD800FA9793 /* ViewController.swift in Sources */,
 				D62A73A51E15ACD800FA9793 /* AppDelegate.swift in Sources */,
 			);
@@ -299,6 +303,7 @@
 				D62A73B51E15ACD800FA9793 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
