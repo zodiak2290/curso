@@ -58,11 +58,11 @@
 			children = (
 				D62A73A41E15ACD800FA9793 /* AppDelegate.swift */,
 				D62A73A61E15ACD800FA9793 /* ViewController.swift */,
+				D6CC177A1E2707860006A6A5 /* TodoList.swift */,
 				D62A73A81E15ACD800FA9793 /* Main.storyboard */,
 				D62A73AB1E15ACD800FA9793 /* Assets.xcassets */,
 				D62A73AD1E15ACD800FA9793 /* LaunchScreen.storyboard */,
 				D62A73B01E15ACD800FA9793 /* Info.plist */,
-				D6CC177A1E2707860006A6A5 /* TodoList.swift */,
 			);
 			path = platzidos;
 			sourceTree = "<group>";
