@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        print("hi")
+        
         todoList.addItem(item: itemTextField.text!)
         tableView.reloadData()
         self.itemTextField.text = ""

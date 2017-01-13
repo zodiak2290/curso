@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var item: String?
-    
+    var seletedDate :Date?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -23,9 +23,25 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func dateSelected(_ sender: UIDatePicker) {
-        print("cambioo  \(sender.date) ")
-        //self.dateLabel.text = sender.date.description
+        self.seletedDate = sender.date
+        
+        //print("Selected date: \(selectedDate)")
         self.dateLabel.text = formatDate(date: sender.date )
+        //let delegate = UIApplication.shared.delegate as? AppDelegate
+        //delegate?.scheduleNotification(at: selectedDate)
+        
+    }
+    
+    @IBAction func addNotification(_ sender: UIBarButtonItem) {
+        print("Agregar")
+        if let dateString = self.dateLabel.text {
+            print(dateString)
+        
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            delegate?.scheduleNotification(at: self.seletedDate!, message: self.item!)
+        }else{
+            print("Fecha no valida")
+        }
     }
     
     func formatDate(date: Date) -> String {
@@ -33,6 +49,8 @@ class DetailViewController: UIViewController {
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
         return formatter.string(from: date )
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,3 +68,17 @@ class DetailViewController: UIViewController {
     */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
