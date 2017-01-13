@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="R7U-bB-Sx4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Lista de tareas-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="platzidos" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="keV-O6-BmU">
-                                <rect key="frame" x="16" y="59" width="343" height="588"/>
+                                <rect key="frame" x="16" y="103" width="343" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -56,14 +56,50 @@
                             <constraint firstItem="eCS-dg-wxn" firstAttribute="leading" secondItem="VRe-wT-Imd" secondAttribute="trailing" constant="8" id="sQy-IY-3On"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Lista de tareas" id="wXO-J9-Vux"/>
                     <connections>
                         <outlet property="itemTextField" destination="VRe-wT-Imd" id="Eim-sj-QTf"/>
                         <outlet property="tableView" destination="keV-O6-BmU" id="69n-7H-yZf"/>
+                        <segue destination="dLn-ek-odt" kind="show" identifier="showItem" id="HO2-Jz-9fV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="-112"/>
+            <point key="canvasLocation" x="609" y="-343"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6LS-rm-ML1">
+            <objects>
+                <viewController id="dLn-ek-odt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B6v-4v-kkn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uwa-wc-WZb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dtc-zc-QHo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lie-Wc-XZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1412" y="-343"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L9J-fP-JRy">
+            <objects>
+                <navigationController id="R7U-bB-Sx4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aCZ-r2-lWI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6zO-ui-xcL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57m-DD-GWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="-343"/>
         </scene>
     </scenes>
 </document>

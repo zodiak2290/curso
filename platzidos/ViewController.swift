@@ -43,12 +43,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
         self.itemTextField?.resignFirstResponder()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showItem", sender: self)
+        
+    }
+    
     //MARK: metodos del text field delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         //let currentLengt = textField.text?.characters.count
         if let tareaString = textField.text as? NSString{
             let updateString = tareaString.replacingCharacters(in: range, with: string)
-            return updateString.characters.count < 31
+            return updateString.characters.count < ViewController.MAX_TEXT_SIZE
         }else{
             return true
         }
