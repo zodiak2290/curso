@@ -70,4 +70,8 @@ extension TodoList : UITableViewDataSource{
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
     }
+    
+    func getItem(index: Int) -> String {
+        return items[index]
+    }
 }
