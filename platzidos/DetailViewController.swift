@@ -8,13 +8,15 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var item: String?
     var seletedDate :Date?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class DetailViewController: UIViewController {
     }
     
     func toggleDatePicker()  {
+        self.imageView.isHidden = !self.imageView.isHidden
         datePicker.isHidden = !datePicker.isHidden
     }
     
@@ -71,9 +74,18 @@ class DetailViewController: UIViewController {
         //imagePickerController.sourceType = UIImagePickerControllerSourceType.camera
         imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         //self.presentedViewController(imagePickerController, animated: true, completion: nil)
+        imagePickerController.delegate = self
         self.present(imagePickerController, animated: true, completion: nil)
     }
 
+    //MARK: Image Picker Controller Methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            self.imageView.image = image
+        }
+        toggleDatePicker()
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 
