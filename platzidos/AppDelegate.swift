@@ -12,8 +12,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let center = UNUserNotificationCenter.current()
@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Enable or disable features based on authorization.
         }
         application.registerForRemoteNotifications()
+        //print("Ebtrea aqui al inicio")
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 
@@ -71,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("The attachment was not loaded.")
             }
         }else{
-            print("No hay file")
+            //print("No hay file")
         }
         
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
@@ -86,7 +88,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    
+    /*func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification){
+        print("alertaaaaa")
+    }*/
+
 }
 
 

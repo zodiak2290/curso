@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="609" y="-343"/>
+            <point key="canvasLocation" x="1084" y="-323"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="6LS-rm-ML1">
@@ -81,19 +81,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0zG-bM-0qB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="354"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="87"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ySJ-9l-fnl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="177"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarea:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dki-I2-rgy">
-                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="177"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="43.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfU-I7-XXm">
-                                                <rect key="frame" x="191.5" y="0.0" width="183.5" height="177"/>
+                                                <rect key="frame" x="191.5" y="0.0" width="183.5" height="43.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -101,16 +101,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j0l-DN-vgv">
-                                        <rect key="frame" x="0.0" y="177" width="375" height="177"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="375" height="43.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-3J-m7w">
-                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="177"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="43.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sin fecha" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPy-zy-nEG">
-                                                <rect key="frame" x="191.5" y="0.0" width="183.5" height="177"/>
+                                                <rect key="frame" x="191.5" y="0.0" width="183.5" height="43.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -120,8 +120,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.43836469861671368" green="0.25610640012763886" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nUv-1O-crI">
-                                <rect key="frame" x="0.0" y="431" width="375" height="216"/>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nUv-1O-crI">
+                                <rect key="frame" x="0.0" y="164" width="375" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="6YG-t8-Wle"/>
                                 </constraints>
@@ -133,33 +133,47 @@
                                     <action selector="dateSelected:" destination="dLn-ek-odt" eventType="valueChanged" id="Im0-ZF-1iT"/>
                                 </connections>
                             </datePicker>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZm-xp-3e6">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SwD-A3-Av6"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gwu-L7-Hwc"/>
+                                    <barButtonItem systemItem="camera" id="2D4-Xl-3pt">
+                                        <connections>
+                                            <action selector="addImage:" destination="dLn-ek-odt" id="NBI-Tr-eQc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nUv-1O-crI" firstAttribute="leading" secondItem="dtc-zc-QHo" secondAttribute="leading" id="2Qo-sb-5Be"/>
                             <constraint firstAttribute="trailing" secondItem="nUv-1O-crI" secondAttribute="trailing" id="Dgo-yt-1Pb"/>
                             <constraint firstItem="0zG-bM-0qB" firstAttribute="top" secondItem="B6v-4v-kkn" secondAttribute="bottom" id="Hvw-dR-Nn1"/>
+                            <constraint firstItem="kZm-xp-3e6" firstAttribute="leading" secondItem="dtc-zc-QHo" secondAttribute="leading" id="LYe-x0-HwV"/>
                             <constraint firstAttribute="trailing" secondItem="0zG-bM-0qB" secondAttribute="trailing" id="W23-Ih-Wdf"/>
                             <constraint firstItem="0zG-bM-0qB" firstAttribute="leading" secondItem="dtc-zc-QHo" secondAttribute="leading" id="aNG-P5-Zeb"/>
+                            <constraint firstItem="Uwa-wc-WZb" firstAttribute="top" secondItem="kZm-xp-3e6" secondAttribute="bottom" id="e5f-AX-wZR"/>
                             <constraint firstItem="nUv-1O-crI" firstAttribute="top" secondItem="0zG-bM-0qB" secondAttribute="bottom" constant="13" id="e7T-o5-Uj8"/>
-                            <constraint firstItem="0zG-bM-0qB" firstAttribute="height" secondItem="dtc-zc-QHo" secondAttribute="height" multiplier="0.8" constant="-180" id="vwd-Q2-F5y"/>
+                            <constraint firstAttribute="trailing" secondItem="kZm-xp-3e6" secondAttribute="trailing" id="n11-3g-QDJ"/>
+                            <constraint firstItem="0zG-bM-0qB" firstAttribute="height" secondItem="dtc-zc-QHo" secondAttribute="height" multiplier="0.4" constant="-180" id="vwd-Q2-F5y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4zs-WI-3ZH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="03N-kb-0vn">
-                            <connections>
-                                <action selector="addNotification:" destination="dLn-ek-odt" id="YTY-jv-ntm"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="03N-kb-0vn"/>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="LPy-zy-nEG" id="aBz-so-m0c"/>
+                        <outlet property="datePicker" destination="nUv-1O-crI" id="XAT-ND-YMp"/>
                         <outlet property="descriptionLabel" destination="KfU-I7-XXm" id="8wl-CL-Jxo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lie-Wc-XZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766" y="-323"/>
+            <point key="canvasLocation" x="1881" y="-323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L9J-fP-JRy">
@@ -175,7 +189,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57m-DD-GWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-92" y="-343"/>
+            <point key="canvasLocation" x="319" y="-333"/>
         </scene>
     </scenes>
 </document>
