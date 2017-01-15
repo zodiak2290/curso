@@ -10,7 +10,10 @@ import UIKit
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var item: String?
+    //var item: String?
+    var item: TodoItem?
+    var todoList: TodoList?
+    
     var seletedDate :Date?
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -20,7 +23,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.descriptionLabel.text = item
+        showItem()
+        //self.descriptionLabel.text = item
         //print(item)
         // Do any additional setup after loading the view.
         let tapGestureRecognizer = UITapGestureRecognizer()
@@ -33,6 +37,16 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dateLabel.isUserInteractionEnabled = true
     }
     
+    func showItem() {
+        self.descriptionLabel.text = self.item?.todo
+        if let date = self.item?.dueDate{
+            self.dateLabel.text = self.formatDate(date: date)
+        }
+        
+        if let img = self.item?.image{
+            self.imageView.image = img
+        }
+    }
     func toggleDatePicker()  {
         self.imageView.isHidden = !self.imageView.isHidden
         datePicker.isHidden = !datePicker.isHidden
@@ -47,16 +61,23 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         //delegate?.scheduleNotification(at: selectedDate)
         
     }
-    
-    @IBAction func addNotification(_ sender: UIBarButtonItem) {
+
+    @IBAction func addNoti(_ sender: Any) {
+        print("guarda fecha")
         if let dateString = self.dateLabel.text {
             print(dateString)
+            self.item?.dueDate = self.seletedDate
+            self.todoList?.saveItems()
             let delegate = UIApplication.shared.delegate as? AppDelegate
-            delegate?.scheduleNotification(at: self.seletedDate!, message: self.item!)
+            delegate?.scheduleNotification(at: self.seletedDate!, message: self.item!.todo!)
+            //self.navigationController?.popViewController(animated: true)
+            print(self.navigationController?.popViewController(animated: true) as Any)
         }else{
             print("Fecha no valida")
         }
     }
+    
+    
     
     func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
@@ -81,6 +102,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     //MARK: Image Picker Controller Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            self.item?.image = image
+            self.todoList?.saveItems()
             self.imageView.image = image
         }
         toggleDatePicker()

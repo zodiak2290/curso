@@ -9,8 +9,8 @@
 import UIKit
 
 class TodoList: NSObject {
-    var items : [String] = []
-    
+    //var items : [String] = []
+    var items : [TodoItem] = []
     override init(){
         super.init()
         loadItems()
@@ -22,26 +22,35 @@ class TodoList: NSObject {
         
         let documentDirectryURL = documentDirectoryURLs.first!
         print("\(documentDirectryURL)")
-        return documentDirectryURL.appendingPathComponent("todolist.items")!
+        //return documentDirectryURL.appendingPathComponent("todolist.items")!
+        return documentDirectryURL.appendingPathComponent("todolist.plist")!
     }()
     
-    func addItem(item: String)  {
+    //func addItem(item: String)  {
+    func addItem(item: TodoItem){
         items.append(item)
         saveItems()
     }
     
     func saveItems() {
         let itemsArray = items  as NSArray
-        if itemsArray.write(to: self.fileURL as URL, atomically: true){
+        if NSKeyedArchiver.archiveRootObject(itemsArray, toFile: self.fileURL.path){
             print("Guardado")
         }else{
             print("No guardado")
         }
+        /*if itemsArray.write(to: self.fileURL as URL, atomically: true){
+            print("Guardado")
+        }else{
+            print("No guardado")
+        }*/
     }
     
     func loadItems()  {
-        if let itemsArray = NSArray(contentsOf: self.fileURL) as? [String]{
-            self.items = itemsArray
+        //if let itemsArray = NSArray(contentsOf: self.fileURL) as? [String]{
+        if let itemsArray = NSKeyedUnarchiver.unarchiveObject(withFile: self.fileURL.path){
+            //self.items = itemsArray
+            self.items = itemsArray as! [TodoItem]
         }
     }
     
@@ -55,7 +64,8 @@ extension TodoList : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let item = items[indexPath.row]
-        cell.textLabel!.text = item
+        //cell.textLabel!.text = item
+        cell.textLabel!.text = item.todo
         return cell
     }
     
@@ -71,7 +81,8 @@ extension TodoList : UITableViewDataSource{
         tableView.endUpdates()
     }
     
-    func getItem(index: Int) -> String {
+    //func getItem(index: Int) -> String {
+    func getItem(index:Int) -> TodoItem{
         return items[index]
     }
 }

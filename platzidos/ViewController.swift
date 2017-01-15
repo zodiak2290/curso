@@ -13,7 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     let todoList = TodoList()
-    var selectedItem: String?
+    //var selectedItem: String?
+    var selectedItem: TodoItem?
     
     static let MAX_TEXT_SIZE = 50
     
@@ -31,8 +32,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        
-        todoList.addItem(item: itemTextField.text!)
+        let todoItem = TodoItem()
+        todoItem.todo = itemTextField.text!
+        todoList.addItem(item: todoItem)
+        //todoList.addItem(item: itemTextField.text!)
         tableView.reloadData()
         self.itemTextField.text = ""
         self.itemTextField?.resignFirstResponder()
@@ -56,6 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailViewController = segue.destination as? DetailViewController{
             detailViewController.item = self.selectedItem
+            detailViewController.todoList = self.todoList
         }
     }
     //MARK: metodos del text field delegate
