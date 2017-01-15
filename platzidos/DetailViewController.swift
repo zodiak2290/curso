@@ -48,8 +48,13 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     func toggleDatePicker()  {
-        self.imageView.isHidden = !self.imageView.isHidden
-        datePicker.isHidden = !datePicker.isHidden
+        //self.imageView.isHidden = !self.imageView.isHidden
+        //datePicker.isHidden = !datePicker.isHidden
+        if self.datePicker.isHidden{
+            self.fadeInDatePicker()
+        }else{
+            self.fadeOutDatePicker()
+        }
     }
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {
@@ -98,7 +103,42 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePickerController.delegate = self
         self.present(imagePickerController, animated: true, completion: nil)
     }
+    //MARK: Animaciones
+    func fadeInDatePicker() {
+        self.datePicker.alpha = 0
+        self.datePicker.isHidden = false
+        
+        //self.datePicker.frame.origin.x = 100
+        //self.imageView.frame.origin.x = 10
 
+        UIView.animate(withDuration: 1, animations: {
+            self.datePicker.alpha = 1
+            self.imageView.alpha = 0
+            
+            //self.datePicker.frame.origin.x = 10
+            //self.imageView.frame.origin.x = 100
+        })
+    }
+    
+    func fadeOutDatePicker()  {
+        self.datePicker.alpha = 1
+        self.datePicker.isHidden = false
+        //self.datePicker.frame.origin.x = 10
+        //self.imageView.frame.origin.x = 100
+        UIView.animate(withDuration: 1, animations: {
+            self.datePicker.alpha = 0
+            self.imageView.alpha = 1
+            //self.datePicker.frame.origin.x = 100
+            //self.imageView.frame.origin.x = 10
+        }, completion: {(hecho : Bool) in
+                if hecho{
+                    self.datePicker.isHidden = true
+                }else{
+                    
+                }
+            }
+        )
+    }
     //MARK: Image Picker Controller Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
